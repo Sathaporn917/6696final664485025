@@ -120,45 +120,54 @@
             <div class="card-body p-4">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="needs-validation" novalidate>
                     <div class="row mb-3">
-                        <label for="teacher_id" class="col-sm-3 col-md-2 col-form-label">รหัสพนักงาน</label>
+                        <label for="teacher_id" class="col-sm-3 col-md-2 col-form-label">รหัสรองเท้า</label>
                         <div class="col-sm-9 col-md-4">
-                            <input type="text" class="form-control" id="employee_id" name="employee_id" required>
+                            <input type="text" class="form-control" id="id" name="id" required>
                             <div class="invalid-feedback">
-                                กรุณากรอกรหัสพนักงาน
+                                กรุณากรอกรหัสรองเท้า
                             </div>
                         </div>
                     </div>
                     
                     <div class="row mb-3">
-                        <label for="first_name" class="col-sm-3 col-md-2 col-form-label">ชื่อ</label>
+                        <label for="brand" class="col-sm-3 col-md-2 col-form-label">เเบรนด์</label>
                         <div class="col-sm-9 col-md-4">
-                            <input type="text" class="form-control" id="first_name" name="first_name" required>
+                            <input type="text" class="form-control" id="brand" name="brand" required>
                             <div class="invalid-feedback">
-                                กรุณากรอกชื่อ
+                                กรุณากรอกชื่อเเบรนด์
                             </div>
                         </div>
                     </div>
                     
                     <div class="row mb-3">
-                        <label for="last_name" class="col-sm-3 col-md-2 col-form-label">นามสกุล</label>
+                        <label for="model" class="col-sm-3 col-md-2 col-form-label">เเบบจำลอง</label>
                         <div class="col-sm-9 col-md-4">
-                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                            <input type="text" class="form-control" id="model" name="model" required>
                             <div class="invalid-feedback">
-                                กรุณากรอกนามสกุล
+                                กรุณากรอกเเบบจำลอง
                             </div>
                         </div>
                     </div>
                     
                     <div class="row mb-3">
-                        <label for="department" class="col-sm-3 col-md-2 col-form-label">ฝ่าย</label>
+                        <label for="size" class="col-sm-3 col-md-2 col-form-label">ไซส์รองเท้า</label>
                         <div class="col-sm-9 col-md-4">
-                            <select name="department" id="department" class="form-select" required>
-                                <option value="" selected disabled>เลือกฝ่าย</option>
-                                <option value="ฝ่ายการตลาด">ฝ่ายการตลาด</option>
-                                <option value="ฝ่ายบัญชี">ฝ่ายบัญชี</option>
-                                <option value="ฝ่ายบุคคล">ฝ่ายบุคคล</option>
-                                <option value="ฝ่ายผลิต">ฝ่ายผลิต</option>
-                                <option value="ฝ่ายไอที">ฝ่ายไอที</option>
+                            <select name="size" id="size" class="form-select" required>
+                                <option value="" selected disabled>เลือกไซส์รองเท้า</option>
+                                <option value="45.0">45.0</option>
+                                <option value="44.5">44.5</option>
+                                <option value="44.0">44.0</option>
+                                <option value="43.5">43.5</option>
+                                <option value="43.0">43.0</option>
+                                <option value="42.5">42.5</option>
+                                <option value="42.0">42.0</option>
+                                <option value="41.5">41.5</option>
+                                <option value="41.0">41.0</option>
+                                <option value="40.5">40.5</option>
+                                <option value="40.0">40.0</option>
+                                <option value="39.5">39.5</option>
+                                <option value="39.0">39.0</option>
+
                             </select>
                             <div class="invalid-feedback">
                                 กรุณาเลือกวิชา
@@ -167,35 +176,39 @@
                     </div>
                     
                     <div class="row mb-3">
-                        <label for="gender" class="col-sm-3 col-md-2 col-form-label">เพศ</label>
+                        <label for="color" class="col-sm-3 col-md-2 col-form-label">สี</label>
                         <div class="col-sm-9 col-md-4">
-                            <select name="gender" id="gender" class="form-select" required>
-                                <option value="" selected disabled>เลือกเพศ</option>
-                                <option value="ชาย">ชาย</option>
-                                <option value="หญิง">หญิง</option>
+                            <select name="color" id="color" class="form-select" required>
+                                <option value="" selected disabled>เลือกสี</option>
+                                <option value="Black">Black</option>
+                                <option value="Black/Red">Black/Red</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Gold">Gold</option>
+                                <option value="Green">Green</option>
+                                <option value="Grey">Grey</option>
                             </select>
                             <div class="invalid-feedback">
-                                กรุณาเลือกเพศ
+                                กรุณาเลือกสี
                             </div>
                         </div>
                     </div>
                     
                     <div class="row mb-3">
-                        <label for="age" class="col-sm-3 col-md-2 col-form-label">อายุ</label>
+                        <label for="price" class="col-sm-3 col-md-2 col-form-label">ราคา</label>
                         <div class="col-sm-9 col-md-4">
-                            <input type="number" class="form-control" id="age" name="age" min="1" max="100" required>
+                            <input type="number" class="form-control" id="price" name="price" min="1" max="10000" required>
                             <div class="invalid-feedback">
-                                กรุณากรอกอายุ (1-100)
+                                กรุณากรอกราคา (1-10000)
                             </div>
                         </div>
                     </div>
                     
                     <div class="row mb-3">
-                        <label for="salary" class="col-sm-3 col-md-2 col-form-label">เงินเดือน</label>
+                        <label for="stock" class="col-sm-3 col-md-2 col-form-label">จำนวน</label>
                         <div class="col-sm-9 col-md-4">
-                            <input type="number" class="form-control" id="salary" name="salary" min="0" required>
+                            <input type="number" class="form-control" id="stock" name="stock" min="0" required>
                             <div class="invalid-feedback">
-                                กรุณากรอกเงินเดือน
+                                กรุณากรอกจำนวน
                             </div>
                         </div>
                     </div>
@@ -220,25 +233,38 @@
                     
                     // Get form data and sanitize inputs
                     $id = mysqli_real_escape_string($conn, $_POST['id']);
-                    $model = mysqli_real_escape_string($conn, $_POST['model']);
-                    $category = mysqli_real_escape_string($conn, $_POST['category']);
-                    $price = mysqli_real_escape_string($conn, $_POST['price']);
-                    $release_date = mysqli_real_escape_string($conn, $_POST['release_date']);
-                    $stock = mysqli_real_escape_string($conn, $_POST['stock']);
-                    $description = mysqli_real_escape_string($conn, $_POST['saldescriptionary']);
                     
-                    // Insert data into database
-                    $sql = "INSERT INTO samsung_products (id, model, category, price, release_date, stock,description) 
-                            VALUES ('$id', '$model', '$category', '$price', '$release_date', '$stock', '$description')";
+                    // Check if ID already exists
+                    $check_query = "SELECT id FROM sneakers WHERE id = '$id'";
+                    $result = $conn->query($check_query);
                     
-                    if ($conn->query($sql) === TRUE) {
-                        echo '<div class="alert alert-success mt-3 animate__animated animate__fadeIn">
-                                <i class="fas fa-check-circle me-2"></i> บันทึกข้อมูลเรียบร้อยแล้ว
+                    if ($result->num_rows > 0) {
+                        // ID already exists, show error
+                        echo '<div class="alert alert-danger mt-3 animate__animated animate__fadeIn">
+                                <i class="fas fa-exclamation-circle me-2"></i> รหัสรองเท้านี้มีอยู่ในระบบแล้ว กรุณาใช้รหัสอื่น
                               </div>';
                     } else {
-                        echo '<div class="alert alert-danger mt-3 animate__animated animate__fadeIn">
-                                <i class="fas fa-exclamation-circle me-2"></i> เกิดข้อผิดพลาด: ' . $conn->error . '
-                              </div>';
+                        // ID is unique, proceed with insertion
+                        $brand = mysqli_real_escape_string($conn, $_POST['brand']);
+                        $model = mysqli_real_escape_string($conn, $_POST['model']);
+                        $size = mysqli_real_escape_string($conn, $_POST['size']);
+                        $color = mysqli_real_escape_string($conn, $_POST['color']);
+                        $price = mysqli_real_escape_string($conn, $_POST['price']);
+                        $stock = mysqli_real_escape_string($conn, $_POST['stock']);
+                        
+                        // Insert data into database
+                        $sql = "INSERT INTO sneakers (id, brand, model, size, color, price, stock) 
+                                VALUES ('$id', '$brand', '$model', '$size', '$color', '$price', '$stock')";
+                        
+                        if ($conn->query($sql) === TRUE) {
+                            echo '<div class="alert alert-success mt-3 animate__animated animate__fadeIn">
+                                    <i class="fas fa-check-circle me-2"></i> บันทึกข้อมูลเรียบร้อยแล้ว
+                                  </div>';
+                        } else {
+                            echo '<div class="alert alert-danger mt-3 animate__animated animate__fadeIn">
+                                    <i class="fas fa-exclamation-circle me-2"></i> เกิดข้อผิดพลาด: ' . $conn->error . '
+                                  </div>';
+                        }
                     }
                     
                     // Close connection

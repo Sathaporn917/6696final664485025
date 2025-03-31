@@ -47,19 +47,19 @@ include("conn.php");
     </center>
     <?php
     //เริ่มเก็บข้อมูล
-    $employee_id = $_POST['employee_id'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $department = $_POST['department'];
-    $gender = $_POST['gender'];
-    $age = $_POST['age'];
-    $salary= $_POST['salary'];
+    $id = $_POST['id'];
+    $brand = $_POST['brand'];
+    $model = $_POST['model'];
+    $size = $_POST['size'];
+    $color = $_POST['color'];
+    $price = $_POST['price'];
+    $stock= $_POST['stock'];
 
 
     //เขียนคำสั่ง SQL
 
 
-    $sql = "UPDATE employees SET first_name='$first_name',last_name='$last_name',department='$department',gender='$gender',age='$age',salary='$salary' WHERE employee_id=$employee_id ";
+    $sql = "UPDATE sneakers SET first_name='$first_name',last_name='$last_name',department='$department',gender='$gender',age='$age',salary='$salary' WHERE employee_id=$employee_id ";
 
     // รับคำสั่ง sql
     if ($conn->query($sql) === TRUE) {

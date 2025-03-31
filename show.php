@@ -57,18 +57,18 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ข้อมูลพนักงาน</title>
+    <title>ข้อมูลรองเท้า</title>
 </head>
 
 <body>
     <div class="container container-custom">
         <?php
         if (isset($_GET['action_even']) == 'delete') {
-            $employee_id = $_GET['employee_id'];
-            $sql = "SELECT * FROM employees WHERE employee_id=$employee_id";
+            $id = $_GET['id'];
+            $sql = "SELECT * FROM sneakers WHERE id=$id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
-                $sql = "DELETE FROM employees WHERE employee_id =$employee_id";
+                $sql = "DELETE FROM sneakers WHERE id =$id";
 
                 if ($conn->query($sql) === TRUE) {
                     echo "<div class='alert alert-success'>ลบข้อมูลสำเร็จ</div>";
@@ -83,7 +83,7 @@
         
         <div class="page-header">
             <i class="fas fa-users fa-3x" style="color: #9c27b0;"></i>
-            <b><h1>ข้อมูลพนักงาน</h1></b>
+            <b><h1>ข้อมูลรองเท้า</h1></b>
         </div>
       
         <div class="user-info">
@@ -91,9 +91,9 @@
                 <div class="col-md-12">
                     <h4><i class="fas fa-user-circle me-2"></i>ข้อมูลผู้ใช้งาน</h4>
                     <p>
-                        <strong>รหัสผู้ใช้:</strong> <?php echo isset($_SESSION["employee_id"]) ? $_SESSION["employee_id"] : "ไม่พบข้อมูล"; ?> | 
-                        <strong>ชื่อผู้ใช้:</strong> <?php echo isset($_SESSION["first_name"]) ? $_SESSION["first_name"] : "ไม่พบข้อมูล"; ?> | 
-                        <strong>แผนก:</strong> <?php echo isset($_SESSION["department"]) ? $_SESSION["department"] : "ไม่พบข้อมูล"; ?>
+                        <strong>รหัสรองเท้า:</strong> <?php echo isset($_SESSION["id"]) ? $_SESSION["id"] : "ไม่พบข้อมูล"; ?> | 
+                        <strong>รุ่น:</strong> <?php echo isset($_SESSION["brand"]) ? $_SESSION["brand"] : "ไม่พบข้อมูล"; ?> | 
+                        <strong>รองเท้า:</strong> <?php echo isset($_SESSION["model"]) ? $_SESSION["model"] : "ไม่พบข้อมูล"; ?>
                     </p>
                 </div>
                 <div class="col-md-12 text-end">
@@ -104,40 +104,40 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>รหัสพนักงาน</th>
-                        <th>ชื่อ</th>
-                        <th>นามสกุล</th>
-                        <th>ตำแหน่ง</th>
-                        <th>เพศ</th>
-                        <th>อายุ</th>
-                        <th>เงินเดือน</th>
-                        <th>จัดการข้อมูล</th>
+                        <th>รหัสรองเท้า</th>
+                        <th>รุ่น</th>
+                        <th>รองเท้า</th>
+                        <th>ไซส์รองเท้า</th>
+                        <th>สี</th>
+                        <th>ราคา</th>
+                        <th>จำนวน</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT * FROM employees";
+                $sql = "SELECT * FROM sneakers";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["employee_id"] . "</td>";
-                        echo "<td>" . $row["first_name"] . "</td>";
-                        echo "<td>" . $row["last_name"] . "</td>";
-                        echo "<td>" . $row["department"] . "</td>";
-                        echo "<td>" . $row["gender"] . "</td>";
-                        echo "<td>" . $row["age"] . "</td>";
-                        echo "<td>" . $row["salary"] . "</td>";
+                        echo "<td>" . $row["id"] . "</td>";
+                        echo "<td>" . $row["brand"] . "</td>";
+                        echo "<td>" . $row["model"] . "</td>";
+                        echo "<td>" . $row["size"] . "</td>";
+                        echo "<td>" . $row["color"] . "</td>";
+                        echo "<td>" . $row["price"] . "</td>";
+                        echo "<td>" . $row["stock"] . "</td>";
                         echo '<td>
-                            <a type="button" href="show.php?action_even=del&employee_id=' . $row['employee_id'] . '" 
-                            title="ลบข้อมูล" onclick="return confirm(\'ต้องการจะลบข้อมูลรายชื่อ ' . $row['employee_id'] . ' ' . $row['first_name'] .
-                            ' ' . $row['last_name'] . '?\')" class="btn btn-danger btn-sm me-2"> 
+                            <a type="button" href="show.php?action_even=del&id=' . $row['id'] . '" 
+                            title="ลบข้อมูล" onclick="return confirm(\'ต้องการจะลบข้อมูลรายชื่อ ' . $row['id'] . ' ' . $row['brand'] .
+                            ' ' . $row['model'] . '?\')" class="btn btn-danger btn-sm me-2"> 
                             <i class="fas fa-trash-alt"></i> ลบข้อมูล </a>  
                             
-                            <a type="button" href="edit.php?action_even=edit&employee_id=' . $row['employee_id'] . '" 
+                            <a type="button" href="edit.php?action_even=edit&id=' . $row['id'] . '" 
                             title="แก้ไขข้อมูล" onclick="return confirm(\'ต้องการจะแก้ไขข้อมูลรายชื่อ ' .
-                            $row['employee_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . '?\')" class="btn btn-primary btn-sm"> 
+                            $row['id'] . ' ' . $row['brand'] . ' ' . $row['model'] . '?\')" class="btn btn-primary btn-sm"> 
                             <i class="fas fa-edit"></i> แก้ไขข้อมูล </a> 
                         </td>';
                         echo "</tr>";

@@ -41,8 +41,8 @@ include("conn.php");
 
 <?php
 if(isset($_GET['action_even'])=='edit'){
-    $employee_id=$_GET['employee_id'];
-    $sql="SELECT * FROM employees WHERE employee_id=$employee_id";
+    $id=$_GET['id'];
+    $sql="SELECT * FROM sneakers WHERE id=$id";
     $result=$conn->query($sql);
     if($result->num_rows>0){
         $row=$result->fetch_assoc();
@@ -56,66 +56,78 @@ if(isset($_GET['action_even'])=='edit'){
 
 
 <form action="edit_1.php" method="POST">
-    <input type="hidden"name="employee_id" value="<?php echo$row['employee_id']; ?>">
+    <input type="hidden"name="id" value="<?php echo$row['id']; ?>">
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> รหัสพนักงาน </label>
+        <label class="col-sm-1 col-form-label"> รหัสรองเท้า </label>
         <div class="col-sm-2">
-        <label class="col-sm-1 col-form-label"> <?php echo$row['employee_id']; ?> </label>
+        <label class="col-sm-1 col-form-label"> <?php echo$row['id']; ?> </label>
         </div>
     </div>
    
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> ชื่อพนักงาน </label>
+        <label class="col-sm-1 col-form-label"> เเบรนด์ </label>
         <div class="col-sm-2">
-        <input type="text" name="first_name" class="form-control" maxlength="50" value="<?php echo$row['first_name']; ?>" required>
+        <input type="text" name="brand" class="form-control" maxlength="50" value="<?php echo$row['brand']; ?>" required>
         </div>
     </div>
 
   
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> นามสกุลพนักงาน </label>
+        <label class="col-sm-1 col-form-label"> เเบบจำลอง </label>
         <div class="col-sm-2">
-        <input type="text" name="last_name" class="form-control" maxlength="50" value="<?php echo$row['last_name']; ?>" required>
+        <input type="text" name="model" class="form-control" maxlength="50" value="<?php echo$row['model']; ?>" required>
         </div>
     </div>
 
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> แผนก </label>
+        <label class="col-sm-1 col-form-label"> ไซส์รองเท้า </label>
         <div class="col-sm-2">
-        <select name="department" class="form-select" aria-label="Default select example">
-            <option >กรุณาระบุแผนก</option>
-            <option value="ฝ่ายไอที"<?php if ($row['department']=='ฝ่ายไอที'){ echo "selected";} ?>>ฝ่ายไอที</option>
-            <option value="ฝ่ายบุคคล"<?php if ($row['department']=='ฝ่ายบุคคล'){ echo "selected";} ?>>ฝ่ายบุคคล</option>
-            <option value="ฝ่ายการตลาด"<?php if ($row['department']=='ฝ่ายการตลาด'){ echo "selected";} ?>>ฝ่ายการตลาด</option>
-            <option value="ฝ่ายบัญชี"<?php if ($row['department']=='ฝ่ายบัญชี'){ echo "selected";} ?>>ฝ่ายบัญชี</option>
-            <option value="ฝ่ายผลิต"<?php if ($row['department']=='ฝ่ายผลิต'){ echo "selected";} ?>>ฝ่ายผลิต</option>
+        <select name="size" class="form-select" aria-label="Default select example">
+            <option >กรุณาระบุไซส์รองเท้า</option>
+            <option value="45.0"<?php if ($row['size']=='45.0'){ echo "selected";} ?>>45.0</option>
+            <option value="44.5"<?php if ($row['size']=='44.5'){ echo "selected";} ?>>44.5</option>
+            <option value="44.0"<?php if ($row['size']=='44.0'){ echo "selected";} ?>>44.0</option>
+            <option value="43.5"<?php if ($row['size']=='43.5'){ echo "selected";} ?>>43.5</option>
+            <option value="43.0"<?php if ($row['size']=='43.0'){ echo "selected";} ?>>43.0</option>
+            <option value="42.5"<?php if ($row['size']=='42.5'){ echo "selected";} ?>>42.5</option>
+            <option value="42.0"<?php if ($row['size']=='42.0'){ echo "selected";} ?>>42.0</option>
+            <option value="41.5"<?php if ($row['size']=='41.5'){ echo "selected";} ?>>41.5</option>
+            <option value="41.0"<?php if ($row['size']=='41.0'){ echo "selected";} ?>>41.0</option>
+            <option value="40.5"<?php if ($row['size']=='40.5'){ echo "selected";} ?>>40.5</option>
+            <option value="40.0"<?php if ($row['size']=='40.0'){ echo "selected";} ?>>40.0</option>
+            <option value="39.5"<?php if ($row['size']=='39.5'){ echo "selected";} ?>>39.5</option>
+            <option value="39.0"<?php if ($row['size']=='39.0'){ echo "selected";} ?>>39.0</option>
+
         </select> 
         </div>
     </div>
 
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> เพศ </label>
+        <label class="col-sm-1 col-form-label"> สี </label>
         <div class="col-sm-2">
-        <select name="gender" class="form-select" aria-label="Default select example">
-            <option >กรุณาระบุเพศ</option>
-            <option value="ชาย"<?php if ($row['gender']=='ชาย'){ echo "selected";} ?>>เพศชาย</option>
-            <option value="หญิง"<?php if ($row['gender']=='หญิง'){ echo "selected";} ?>>เพศหญิง</option>
-            <option value="อื่นๆ"<?php if ($row['gender']=='อื่นๆ'){ echo "selected";} ?>>LGBTQ+</option>
+        <select name="color" class="form-select" aria-label="Default select example">
+            <option >กรุณาระบุสี</option>
+            <option value="Black"<?php if ($row['color']=='Black'){ echo "selected";} ?>>Black</option>
+            <option value="Black/Red"<?php if ($row['color']=='Black/Red'){ echo "selected";} ?>>Black/Red</option>
+            <option value="Blue"<?php if ($row['color']=='Blue'){ echo "selected";} ?>>Blue</option>
+            <option value="Gold"<?php if ($row['color']=='Gold'){ echo "selected";} ?>>Gold</option>
+            <option value="Green"<?php if ($row['color']=='Green'){ echo "selected";} ?>>Green</option>
+            <option value="Grey"<?php if ($row['color']=='Grey'){ echo "selected";} ?>>Grey</option>
         </select> 
         </div>
     </div>
    
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> อายุ </label>
+        <label class="col-sm-1 col-form-label"> ราคา </label>
         <div class="col-sm-2">
-        <input type="text" name="age" class="form-control" maxlength="50" value="<?php echo$row['age']; ?>" required>
+        <input type="text" name="price" class="form-control" maxlength="50" value="<?php echo$row['price']; ?>" required>
         </div>
     </div>
 
     <div class="row mb-3">
-        <label class="col-sm-1 col-form-label"> เงินเดือน </label>
+        <label class="col-sm-1 col-form-label"> จำนวน </label>
         <div class="col-sm-2">
-        <input type="text" name="salary" class="form-control" maxlength="50" value="<?php echo$row['salary']; ?>" required>
+        <input type="text" name="stock" class="form-control" maxlength="50" value="<?php echo$row['stock']; ?>" required>
         </div>
     </div>
    
